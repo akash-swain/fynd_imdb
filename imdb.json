@@ -395,18 +395,6 @@
     "name": "Night of the Living Dead"
   },
   {
-    "99popularity": 53.0,
-    "director": "Larry Semon",
-    "genre": [
-      "Comedy",
-      " Family",
-      " Fantasy",
-      " Adventure"
-    ],
-    "imdb_score": 5.3,
-    "name": "The Wizard of Oz"
-  },
-  {
     "99popularity": 68.0,
     "director": "George Lucas",
     "genre": [
@@ -2013,17 +2001,6 @@
     ],
     "imdb_score": 6.7,
     "name": "Un dans la ville"
-  },
-  {
-    "99popularity": 76.0,
-    "director": "Tim Burton",
-    "genre": [
-      "Crime",
-      " Drama",
-      " Thriller"
-    ],
-    "imdb_score": 7.6,
-    "name": "Batman"
   },
   {
     "99popularity": 74.0,
