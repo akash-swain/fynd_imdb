@@ -17,6 +17,8 @@ from rest_framework.status import (
     HTTP_404_NOT_FOUND,
     HTTP_200_OK
 )
+from django.views.generic import TemplateView
+
 # Create your views here.
 
 
@@ -94,3 +96,9 @@ def login(request):
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': token.key},
                     status=HTTP_200_OK)
+
+
+
+
+class HomepageView(TemplateView):
+    template_name = "imdb_app/index.html"

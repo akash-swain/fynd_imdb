@@ -19,10 +19,10 @@ from imdb_app import views
 
 
 urlpatterns = [
+    path('', views.HomepageView.as_view(), name = "main"),
     path('admin/', admin.site.urls),
-    path('',views.IndexView.as_view(), name = "homepage_admin"),
-    path('del_by_mov_name/<str:name>/',views.IndexView.as_view(), name = "delete"),
+    path('adm/',views.IndexView.as_view(), name = "homepage_admin"),
+    path('adm/del_by_mov_name/<str:name>/',views.IndexView.as_view(), name = "delete"),
     path('login/', views.login),
     path('user/',views.UserView.as_view(), name = "homepage_user"),
-
 ]

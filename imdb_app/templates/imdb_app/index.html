@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+        <h1>Welcome to IMDB Site - Django based REST API</h1>
+
+
+        <h3>How to use this API?</h3>
+        <ul> <b>NORMAL USER</b>
+            <ul>
+                <li><b>GET</b>: <a href="https://imdbsite.herokuapp.com/user/">https://imdbsite.herokuapp.com/user/</a>
+                    :
+                    This will
+                    <b>GET</b> all the movies in the database.</li> <br>
+                <li><b>GET</b>: <a
+                        href="https://imdbsite.herokuapp.com/user/?name=The">https://imdbsite.herokuapp.com/user/?name=&lt;movie_name&gt;</a>
+                    : This will <b>GET</b> all the movies in the database which contains name=movie_name. <br> NOTE:
+                    Replace
+                    &lt;movie_name&gt;
+                    with your search string </li> <br>
+                <li> <b>POST, PUT and DELETE</b> : These methods are not available for NORMAL USER</li> <br>
+
+
+            </ul>
+        </ul>
+        <ul> <b>ADMIN USER</b>
+            <ul>
+                <li>For Admin access you need your user token. Steps are as follows:
+                    <ul>
+                        <li> Send a post request or Visit <a
+                                href="https://imdbsite.herokuapp.com/login/">https://imdbsite.herokuapp.com/login/</a>
+                            : In Content box pass the username and password of admin as a JSON "{"username": "akash",
+                            "password": "akashswain"}" <br>
+                            In Response a token will be returned --> "token": "6f1386dcbbf0f33554ff855d9ba971ccd01983dd"
+                        </li>
+                        <li>Set this token in header of your <b>GET, POST, DELETE</b> requests. <br>
+                            headers = {"Authorization": "6f1386dcbbf0f33554ff855d9ba971ccd01983dd"}
+                        </li>
+                    </ul>
+                </li> <br>
+            </ul>
+            <ul>
+
+                <li><b>GET</b>: <a href="https://imdbsite.herokuapp.com/adm/">https://imdbsite.herokuapp.com/adm/</a> :
+                    This
+                    will
+                    <b>GET</b> all the movies in the database. Don't forget to set the headers.</li> <br>
+                <li><b>GET</b>: <a
+                        href="https://imdbsite.herokuapp.com/adm/?name=The">https://imdbsite.herokuapp.com/user/?name=&lt;movie_name&gt;</a>
+                    : This will <b>GET</b> all the movies in the database which contains name=movie_name. Don't forget
+                    to set the headers. <br> NOTE: Replace
+                    &lt;movie_name&gt;
+                    with your search string </li> <br>
+                <li><b>POST and PUT</b>: Both POST and PUT requests are merged together. If no attribute is provided it
+                    will
+                    return an error - '"name" is required'. <br>
+                    Now when you pass attribute "name" in your attributes list, then first it checks if it already
+                    exists in
+                    database,
+                    <br>
+                    If YES, then it will update the Movie with other attributes like "popularity", "imdb_score", etc. if
+                    these are provided. No additional attribute are mandatory here. <br>
+                    If NO, then it will create the Movie with the name provided. No additional attribute are mandatory
+                    here.
+                    If attributes are not provided it will be set else 0 or null or empty depending on attribute type.
+                    <br> <br>
+                    <b>For testing use:</b> <br>
+                    <ul>
+                        <li> url = "https://imdbsite.herokuapp.com/adm/" </li><br>
+                        <li> headers = {"Authorization": 'Token 6f1386dcbbf0f33554ff855d9ba971ccd01983dd'} </li> <br>
+                        <li> data = { <br>
+                            "name": "Movie name", <br>
+                            "imdb_score": 5, <br>
+                            "popularity": 50, <br>
+                            "director": "Director Name", <br>
+                            "genre": ["genre1", "genre2", "genre3", "genre4", "genre5"] <br>
+                            }
+                        </li>
+                    </ul>
+                    <br>
+                    <b>Workflow/ Validations:</b> <br>
+                    <ul>
+                        <li>imdb_score and popularity: No number range validation. </li>
+                        <li>genre: admin can add new genre but cannot update the existing one. </li>
+
+                    </ul>
+
+
+
+
+
+
+
+
+
+                </li> <br>
+
+                <li>
+                    <b>DELETE</b>: DELETE request works on the exact movie name. <br> <br>
+                    <b>For testing use: </b> (Note: Replace &lt;str:name&gt; in below line with exact movie name.) <br>
+                    <ul>
+                        <li>url= "https://imdbsite.herokuapp.com/adm/del_by_mov_name/&lt;str:name&gt;/"</li> <br>
+                        <li> headers = {"Authorization": 'Token 6f1386dcbbf0f33554ff855d9ba971ccd01983dd'} </li> <br>
+                    </ul>
+
+                </li>
+
+
+
+            </ul>
+        </ul>
+    </div>
+    </div>
+</body>
+
+</html>
