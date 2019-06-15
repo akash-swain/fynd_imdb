@@ -1,1 +1,1 @@
-web: gunicorn elecproj.wsgi --log-file -
+web: gunicorn imdb_proj.wsgi --log-file -
