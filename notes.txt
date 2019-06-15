@@ -1,0 +1,9 @@
+Create venv
+pip install django and djangorestframework
+create django project - django-admin startproject imdb_proj .
+create django app - python manage.py startapp imdb_app
+Add imdb_app in settings.py --> INSTALLED_APPS
+Create two tables - Movies and Genre
+makemigrations and migrate
+Populate the tables with json data --> https://docs.djangoproject.com/en/2.0/howto/custom-management-commands/ (change this file)
+
